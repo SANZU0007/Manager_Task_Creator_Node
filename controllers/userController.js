@@ -73,7 +73,18 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// @route GET /api/users/normal
+const getNormalUsers = async (req, res) => {
+  try {
+    // Fetch users with the role of 'normal'
+    const users = await User.find({ role: 'normal' }); 
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
 
 
 
-export { registerUser, loginUser ,getAllUsers };
+
+export { registerUser, loginUser ,getAllUsers ,getNormalUsers };

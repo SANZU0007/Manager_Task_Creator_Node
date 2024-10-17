@@ -5,6 +5,9 @@ import connectDB from './config/db.js';
 import goalRoutes from './routes/goalRoutes.js';
 import userRoutes from "./routes/userRoutes.js"
 
+import attendanceRoutes from './routes/attendanceRoutes.js';
+
+
 dotenv.config();
 
 connectDB();
@@ -18,6 +21,12 @@ app.use(express.json()); // For parsing application/json
 // Routes
 app.use('/api/goals', goalRoutes);
 app.use('/api/users',userRoutes  );  // User routes
+
+
+
+
+
+app.use('/api/attendance', attendanceRoutes);
 
 // Default route
 app.get('/', (req, res) => {
